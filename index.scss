@@ -1,4 +1,85 @@
-body {
-    font-family: "Montserrat", sans-serif;
-    background: url('./images/header/background-pattern.png') repeat;
+@import './styles/tokens.scss';
+@import './styles/global.scss';
+
+header {
+    background: url('./images/header/background.png') repeat;
+    padding: 2rem;
+    min-height: 100vh;
+
+    .header__logo {
+        text-align: center;
+        font-size: 0;
+        margin-bottom: $spacing-small;
+        
+        &::before {
+            content: url('./images/logo/logo.svg');
+        }
+    }
+
+    .header__wrapper {
+        text-align: center;
+
+        img {
+            width: 100%;
+            max-width: 66.6rem;
+            height: auto;
+            max-height: 28rem;
+            margin-bottom: $spacing-xxsmall;
+        }
+    }
+
+    .header__spotlight {
+        color: $color-tertiary;
+        font-size: 4.8rem;
+    }
+
+    .header__title {
+        color: $color-white;
+        font-size: 12rem;
+        line-height: 10rem;
+        margin-bottom: $spacing-small;
+    }
+
+    .header__description {
+        font-weight: $font-regular;
+        padding: 0 1rem;
+    }
+
+    .header__spotlight, .header__title {
+        font-weight: $font-bold;
+    }
+
+    .header__title, .header__description {
+        color: $color-white;
+    }
+
+    &[data-theme='secondary'] {
+        background: url('./images/header/background-secondary.png') repeat;
+
+        .header__logo {    
+            &::before {
+                content: url('./images/logo/logo-secondary.svg');
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    header {
+        padding: 4rem;
+
+        .header__logo {
+            text-align: left;
+        }
+
+        .header__logo, .header__spotlight {
+            margin-bottom: 0;
+        }
+
+        .header__wrapper {    
+            img {
+                max-height: 68.3rem;
+            }
+        }
+    }
 }
